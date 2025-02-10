@@ -26,6 +26,10 @@ local Tabs = {
 local noClipInitialized = false
 local invisibilityInitialized = false
 local teleportInitialized = false
+local sttingInitialized = false
+local spinningInitialized = false
+local orbitingInitialized = false
+local followingInitialized = false
 
 local playerName = game.Players.LocalPlayer.Name 
 
@@ -264,6 +268,7 @@ Tabs.Jokes:AddButton({
     Title = "Teleport to Player",
     Description = "Click to teleport to the selected player.",
     Callback = function()
+        
         local player = game.Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
         local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
@@ -302,6 +307,7 @@ Tabs.Jokes:AddToggle("ObservePlayerToggle", {
     Description = "Toggle to observe the selected player's perspective.",
     Default = false,
     Callback = function(Value)
+        
         local player = game.Players.LocalPlayer
         local camera = game.Workspace.CurrentCamera
 
@@ -367,6 +373,11 @@ Tabs.Jokes:AddToggle("FollowPlayerToggle", {
     Description = "Toggle to sit on the selected player's head.",
     Default = false,
     Callback = function(Value)
+        if not sttingInitialized then
+            sttingInitialized = true
+            return
+        end
+
         if Value then
             if not selectedPlayer or not selectedPlayer.Character or not selectedPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 Library:Notify({
@@ -427,6 +438,10 @@ Tabs.Jokes:AddToggle("SpinnerModeToggle", {
     Description = "Toggle to spin around the selected player!",
     Default = false,
     Callback = function(Value)
+        if not spinningInitialized then
+            spinningInitialized = true
+            return
+        end
         if Value then
             if not selectedPlayer or not selectedPlayer.Character or not selectedPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 Library:Notify({
@@ -487,6 +502,10 @@ Tabs.Jokes:AddToggle("OrbitModeToggle", {
     Description = "Toggle to orbit above the selected player.",
     Default = false,
     Callback = function(Value)
+        if not orbitingInitialized then
+            orbitingInitialized = true
+            return
+        end
         if Value then
             if not selectedPlayer or not selectedPlayer.Character or not selectedPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 Library:Notify({
@@ -546,6 +565,10 @@ Tabs.Jokes:AddToggle("FollowWithTrailToggle", {
     Description = "Toggle to follow the selected player with a trail effect.",
     Default = false,
     Callback = function(Value)
+        if not followingInitialized then
+            followingInitialized = true
+            return
+        end
         if Value then
             if not selectedPlayer or not selectedPlayer.Character or not selectedPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 Library:Notify({
