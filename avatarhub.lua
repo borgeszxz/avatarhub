@@ -45,6 +45,7 @@ local toggleInitialized = false
 
 Tabs.SlowWalk:AddToggle("SlowWalkToggle", {
     Title = "Enable Slow Walk",
+    Description = "Reduces your walking speed for a slower pace.",
     Default = false,
     Callback = function(Value)
         if not toggleInitialized then
@@ -80,6 +81,7 @@ Tabs.SlowWalk:AddToggle("SlowWalkToggle", {
 -- Speed Control Tab
 Tabs.SpeedControl:AddSlider("SpeedSlider", {
     Title = "Walking Speed",
+    Description = "Adjust your walking speed to a custom value.",
     Default = 16, 
     Min = 2, 
     Max = 200, 
@@ -113,6 +115,7 @@ Tabs.SpeedControl:AddButton({
 -- Noclip Tab
 Tabs.NoClip:AddToggle("NoClipToggle", {
     Title = "Enable NoClip",
+    Description = "Allows you to move through walls and obstacles.",
     Default = false,
     Callback = function(Value)
         if not noClipInitialized then
@@ -140,6 +143,7 @@ Tabs.NoClip:AddToggle("NoClipToggle", {
 --Invisibility Tab
 Tabs.Invisibility:AddToggle("InvisibilityToggle", {
     Title = "Enable Invisibility",
+    Description = "Toggle to make your character invisible to others.",
     Default = false,
     Callback = function(Value)
         if not invisibilityInitialized then
@@ -178,6 +182,7 @@ local teleportKey = Enum.KeyCode.T
 
 Tabs.MouseTeleport:AddToggle("TeleportToggle", {
     Title = "Enable Mouse Teleport",
+    Description = "Toggle to teleport to the position of your mouse cursor. Use the T key to teleport.",
     Default = false,
     Callback = function(Value)
         if not teleportInitialized then
