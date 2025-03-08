@@ -635,24 +635,6 @@ Tabs.Jokes:AddToggle("FollowWithTrailToggle", {
     end
 })
 
-spawn(function()
-    local voiceService = game:GetService("VoiceChatService")
-    if not voiceService then
-        warn("VoiceChatService not available!")
-        return
-    end
-
-    while true do
-        pcall(function()
-            if voiceService:IsVoiceSuspended() then
-                print("Voice Chat suspended. Attempting to rejoin...")
-                voiceService:JoinVoice()
-                print("Voice Chat bypass successful!")
-            end
-        end)
-        wait(5) 
-    end
-end)
 
 SaveManager:SetLibrary(Library)
 InterfaceManager:SetLibrary(Library)
